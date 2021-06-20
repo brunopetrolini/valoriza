@@ -4,12 +4,13 @@
   "description": "Aplicação Node.JS desenvolvida para facilitar o envio de elogios para seu colega deixando seu dia mais feliz!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
   "author": "Bruno Petrolini",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.12",
     "@types/node": "^15.12.4",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "eslint": "^7.29.0",
@@ -18,5 +19,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
