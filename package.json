@@ -4,7 +4,8 @@
   "description": "Aplicação Node.JS desenvolvida para facilitar o envio de elogios para seu colega deixando seu dia mais feliz!",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "keywords": [],
   "author": "Bruno Petrolini",
