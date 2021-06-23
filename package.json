@@ -2,7 +2,10 @@
   "name": "nlw-valoriza",
   "version": "1.0.0",
   "description": "Aplicação Node.JS desenvolvida para facilitar o envio de elogios para seu colega deixando seu dia mais feliz!",
-  "main": "index.js",
+  "main": "./src/server.ts",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"

@@ -13,7 +13,7 @@ export class User {
   email: string
 
   @Column()
-  admin: boolean
+  isAdmin: boolean
 
   @CreateDateColumn()
   createdAt: Date
