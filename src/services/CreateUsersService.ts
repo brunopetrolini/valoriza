@@ -1,3 +1,4 @@
+import { getCustomRepository } from 'typeorm'
 import { User } from '../entities/User'
 import { UsersRepository } from '../repositories/UsersRepository'
 
@@ -9,7 +10,7 @@ interface IUserRequest {
 
 export class CreateUserService {
   async execute ({ name, email, isAdmin }: IUserRequest): Promise<User> {
-    const usersRepository = new UsersRepository()
+    const usersRepository = getCustomRepository(UsersRepository)
 
     const userExists = await usersRepository.findOne({ email })
 
