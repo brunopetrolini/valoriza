@@ -1,6 +1,7 @@
 import { getCustomRepository } from 'typeorm'
 import { User } from '../entities/User'
 import { UsersRepository } from '../repositories/UsersRepository'
+import { hash } from 'bcryptjs'
 
 interface IUserRequest {
   name: string
@@ -19,10 +20,12 @@ export class CreateUserService {
 
     if (!email) throw new Error('Invalid email')
 
+    const passwordHash = await hash(password, 12)
+
     const user = usersRepository.create({
       name,
       email,
-      password,
+      password: passwordHash,
       isAdmin
     })
 
