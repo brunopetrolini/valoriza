@@ -11,7 +11,7 @@ interface IUserRequest {
 }
 
 export class CreateUserService {
-  async execute ({ name, email, password, isAdmin }: IUserRequest): Promise<User> {
+  async execute ({ name, email, password, isAdmin = false }: IUserRequest): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository)
 
     const userExists = await usersRepository.findOne({ email })
