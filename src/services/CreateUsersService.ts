@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm'
-import { User } from '../entities/User'
 import { UsersRepository } from '../repositories/UsersRepository'
+import { classToPlain } from 'class-transformer'
 import { hash } from 'bcryptjs'
 
 interface IUserRequest {
@@ -11,7 +11,7 @@ interface IUserRequest {
 }
 
 export class CreateUserService {
-  async execute ({ name, email, password, isAdmin = false }: IUserRequest): Promise<User> {
+  async execute ({ name, email, password, isAdmin = false }: IUserRequest): Promise<any> {
     const usersRepository = getCustomRepository(UsersRepository)
 
     const userExists = await usersRepository.findOne({ email })
@@ -31,6 +31,6 @@ export class CreateUserService {
 
     await usersRepository.save(user)
 
-    return user
+    return classToPlain(user)
   }
 }
