@@ -9,7 +9,8 @@ export class ListUserSendComplimentsService {
     const compliments = await complimentsRepository.find({
       where: {
         userSender: userId
-      }
+      },
+      relations: ['sender', 'receiver', 'tag']
     })
 
     return compliments
